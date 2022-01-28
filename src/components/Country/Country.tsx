@@ -3,13 +3,13 @@ import styles from "../Countries/Countries.module.css";
 import {CountryType} from "../../App";
 
 type CountryPropsType = {
-    initialCountries: Array<CountryType>
+    countries: Array<CountryType>
 }
 
 const Country = (props: CountryPropsType) => {
     return (
         <>
-            {props.initialCountries?.map(country =>
+            {props.countries?.map(country =>
                 <div key={country.name} className={styles.countryBlock}>
                     <div className={styles.flagContainer}>
                         <img alt={`${country.name} flag`} src={country.flag}/>

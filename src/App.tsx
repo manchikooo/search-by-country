@@ -4,9 +4,8 @@ import {Countries} from "./components/Countries/Countries";
 import Header from "./components/Header/Header";
 import styles from './App.module.css'
 import {SearchInput} from "./components/SearchInput";
-import {FilterButtons} from "./components/FilterButtons/FilterButtons";
+import {SelectForFilter} from "./components/FilterButtons/SelectForFilter";
 import axios from "axios";
-import {log} from "util";
 
 export type CountryType = {
     name: string
@@ -18,32 +17,37 @@ export type CountryType = {
 
 function App() {
 
-    const [initialCountries, setInitialCountries] = useState<Array<CountryType>>([])
-    const [countries, setCountries] = useState<Array<CountryType>>([])
-
+    const [countriesFromServer, setCountriesFromServer] = useState<Array<CountryType>>([])
+    const [countriesForSelect, setCountriesForSelect] = useState<Array<CountryType>>([])
+    const [countriesForInput, setCountriesForInput] = useState<Array<CountryType>>([])
 
     useEffect(() => {
         axios.get<Array<CountryType>>(`https://restcountries.com/v2/all?fields=name,region,flag,population,capital`)
             .then(response => {
-                setInitialCountries(response.data)
-                return axios.get<Array<CountryType>>(`https://restcountries.com/v2/all?fields=name,region,flag,population,capital`)
+                setCountriesFromServer(response.data)
+                setCountriesForSelect(response.data)
+                setCountriesForInput(response.data)
             })
-            .then(res => setCountries(res.data))
     }, [])
 
-    console.log(initialCountries)
-    console.log(countries)
+    console.log(countriesFromServer)
+    console.log(countriesForSelect)
+    console.log(countriesForInput)
 
     return (
         <div className={styles.AppContainer}>
             <div className={styles.App}>
                 <Header/>
-                <SearchInput/>
-                <FilterButtons
-                    initialCountries={initialCountries}
-                    setCountries={setCountries}
+                <SearchInput
+                    countries={countriesForSelect}
+                    setCountries={setCountriesForInput}
                 />
-                <Countries initialCountries={countries}/>
+                <SelectForFilter
+                    countriesFromServer={countriesFromServer}
+                    setCountries={setCountriesForSelect}
+                    setCountriesInput={setCountriesForInput}
+                />
+                <Countries countries={countriesForInput}/>
             </div>
         </div>
     );
