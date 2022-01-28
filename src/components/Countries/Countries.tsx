@@ -1,29 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React from 'react';
 import Country from "../Country/Country";
 import styles from "../../App.module.css";
+import {CountryType} from "../../App";
 
-export type CountryNameType = {
-    name: string
-    region: string
-    flag: string
-    population: number
-    capital: string
+type CountriesPropsType = {
+    initialCountries: Array<CountryType>
 }
 
-export const Countries = () => {
-
-    const [countries, setCountries] = useState<Array<CountryNameType>>([])
-
-    useEffect(() => {
-        axios.get<Array<CountryNameType>>(`https://restcountries.com/v2/all?fields=name,region,flag,population,capital`).then(response => setCountries(response.data))
-    }, [])
-
-    console.log(countries)
+export const Countries = (props: CountriesPropsType) => {
 
     return (
         <div className={styles.CountriesWrapper}>
-            <Country countries={countries}/>
+            <Country initialCountries={props.initialCountries}/>
         </div>
     );
 };

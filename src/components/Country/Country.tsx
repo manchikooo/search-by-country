@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from "../Countries/Countries.module.css";
-import {CountryNameType} from "../Countries/Countries";
+import {CountryType} from "../../App";
 
 type CountryPropsType = {
-    countries: Array<CountryNameType>
+    initialCountries: Array<CountryType>
 }
 
 const Country = (props: CountryPropsType) => {
     return (
         <>
-            {props.countries?.map(country =>
+            {props.initialCountries?.map(country =>
                 <div key={country.name} className={styles.countryBlock}>
                     <div className={styles.flagContainer}>
                         <img alt={`${country.name} flag`} src={country.flag}/>
