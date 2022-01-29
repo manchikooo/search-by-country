@@ -1,37 +1,28 @@
 import React from 'react';
-import styles from "../Countries/Countries.module.css";
-import {CountryType} from "../../App";
 
-type CountryPropsType = {
-    countries: Array<CountryType>
-}
-
-const Country = (props: CountryPropsType) => {
+const Country = () => {
     return (
-        <>
-            {props.countries?.map(country =>
-                <div key={country.name} className={styles.countryBlock}>
-                    <div className={styles.flagContainer}>
-                        <img alt={`${country.name} flag`} src={country.flag}/>
-                    </div>
-                    <div className={styles.countryInfoContainer}>
-                        <h2>{country.name}</h2>
-                        <div>
-                            <span>Population: </span>
-                            {country.population}
-                        </div>
-                        <div>
-                            <span>Region: </span>
-                            {country.region}
-                        </div>
-                        <div>
-                            <span>Capital: </span>
-                            {country.capital}
-                        </div>
-                    </div>
-                </div>
-            )}
-        </>
+        <div>
+            <div>
+                <img alt='COUNTRY flag' src='#'/>
+            </div>
+            <div>
+                <ul>
+                    <li>Native Name</li>
+                    <li>Population</li>
+                    <li>Region</li>
+                    <li>Sub Region</li>
+                    <li>Capital</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>Top Level Domain</li>
+                    <li>Currencies</li>
+                    <li>Languages</li>
+                </ul>
+            </div>
+        </div>
     );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Country from "../Country/Country";
-import styles from "../../App.module.css";
+import CountryCard from "../CountryCard/CountryCard";
+import styles from "./Countries.module.css";
 import {CountryType} from "../../App";
 
 type CountriesPropsType = {
@@ -8,10 +8,9 @@ type CountriesPropsType = {
 }
 
 export const Countries = (props: CountriesPropsType) => {
-
     return (
         <div className={styles.CountriesWrapper}>
-            <Country countries={props.countries}/>
+            <CountryCard countries={props.countries}/>
         </div>
     );
 };

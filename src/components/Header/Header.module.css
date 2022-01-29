@@ -1,6 +1,7 @@
 .headerBlock {
     display: flex;
     height: 80px;
+    width: 100%;
     background-color: hsl(209, 23%, 22%);
     justify-content: flex-start;
     font-weight: bold;

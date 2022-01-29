@@ -1,0 +1,18 @@
+.selectStyle {
+    outline: none;
+    border: none;
+    background-color: #2b3945;
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 5px;
+    color: white;
+}
+.filterByRegionStyle {
+    outline: none;
+    border: none;
+    background-color: #2b3945;
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 5px;
+    color: #757575;
+}
