@@ -41,8 +41,6 @@ export const Country = () => {
 
     return (
         <>
-
-
             {countryInDetails.map(c => {
 
                 const topLevelDomain = c.topLevelDomain.map(d => d)
@@ -57,6 +55,7 @@ export const Country = () => {
                     <div className={styles.countryContainer}>
                         <div className={styles.flagContainer}>
                             <img alt={`${countryName} flag`} src={`${c.flag}`}/>
+                            <h3>{c.name}</h3>
                         </div>
                         <div className={styles.countryInfoContainer}>
                             <div className={styles.countryInfoBlock}>
@@ -73,7 +72,14 @@ export const Country = () => {
                                     <li><span>Languages: </span>{languages}</li>
                                 </ul>
                             </div>
-                            <div>Border Countries: <BorderCountries borderCountries={borderCountries}/>
+                            <div className={styles.BorderCountriesBlock}>
+                                <h4>
+                                    Border Countries:
+                                </h4>
+                                <div className={styles.BorderCountriesButtonContainer}>
+                                    <BorderCountries borderCountries={borderCountries}/>
+                                </div>
+
                             </div>
                         </div>
 
