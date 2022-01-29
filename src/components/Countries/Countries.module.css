@@ -1,7 +1,7 @@
 .CountriesWrapper {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 50px;
+    margin: 50px 10px 0;
     flex-wrap: wrap;
     gap: 50px;
 }

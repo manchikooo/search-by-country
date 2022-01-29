@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import './App.module.css';
 import Header from "./components/Header/Header";
 import styles from './App.module.css'
-import {HashRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Homepage} from "./components/Homepage/Homepage";
-import Country from "./components/Country/Country";
 import axios from "axios";
+import {Country} from "./components/Country/Country";
 
 type CurrencyType = {
     code: string
@@ -18,6 +18,7 @@ type LanguageType = {
     name: string
     nativeName: string
 }
+export type BordersType = Array<string>
 
 export type CountryType = {
     name: string
@@ -30,6 +31,7 @@ export type CountryType = {
     topLevelDomain: Array<string>
     currencies: Array<CurrencyType>
     languages: Array<LanguageType>
+    borders: BordersType
 }
 
 function App() {
@@ -40,7 +42,7 @@ function App() {
     const [region, setRegion] = useState<string>('All countries')
 
     useEffect(() => {
-        axios.get<Array<CountryType>>(`https://restcountries.com/v2/all?fields=name,region,flag,population,capital,nativeName,subregion,capital,topLevelDomain,currencies,languages`)
+        axios.get<Array<CountryType>>(`https://restcountries.com/v2/all?fields=name,region,flag,population,capital`)
             .then(response => {
                 setCountriesFromServer(response.data)
             })
@@ -54,23 +56,30 @@ function App() {
     })
     const filterCountriesByName = filterByRegion.filter(country => country.name.toLowerCase().includes(inputValue.toLowerCase()))
 
-    console.log(countriesFromServer)
+    console.log('App')
 
     return (
-        <HashRouter>
+        <BrowserRouter>
             <div className={styles.AppContainer}>
                 <Header/>
                 <Routes>
-                    <Route path={'/'} element={
-                        <Homepage inputValue={inputValue}
-                                  setInputValue={setInputValue}
-                                  setRegion={setRegion}
-                                  filterCountriesByName={filterCountriesByName}
-                        />}/>
-                    <Route path={'/:countryName'} element={<Country/>}/>
+                    <Route path={'/*'}
+                           element={
+                               <Homepage inputValue={inputValue}
+                                         setInputValue={setInputValue}
+                                         setRegion={setRegion}
+                                         filterCountriesByName={filterCountriesByName}
+                               />
+                           }
+                    />
+                    <Route path={'/country/:countryName'}
+                           element={
+                               <Country/>
+                           }
+                    />
                 </Routes>
             </div>
-        </HashRouter>
+        </BrowserRouter>
     );
 }
 

@@ -11,7 +11,7 @@ const CountryCard = (props: CountryPropsType) => {
     return (
         <>
             {props.countries?.map(country =>
-                <NavLink to={`/${country.name}`} className={styles.countryBlock} key={country.name}>
+                <NavLink to={`/country/${country.name}`} className={styles.countryBlock} key={country.name}>
                     <div>
                         <div className={styles.flagContainer}>
                             <img alt={`${country.name} flag`} src={country.flag}/>
