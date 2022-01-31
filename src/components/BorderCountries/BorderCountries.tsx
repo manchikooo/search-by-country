@@ -13,8 +13,8 @@ export const BorderCountries = (props: BorderCountriesType) => {
     console.log(props.borderCountries, 'border countr')
     return (
         <>
-            {props.borderCountries.map((b, i) =>
-                <NavLink key={i} to={`/search-by-country/${b.name}`}><Button title={b.name}/></NavLink>)}
+            {props.borderCountries.map((b) =>
+                <NavLink key={b.name} to={`/search-by-country/${b.name}`}><Button title={b.name}/></NavLink>)}
         </>
     );
 };

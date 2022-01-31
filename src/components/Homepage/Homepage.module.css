@@ -16,7 +16,7 @@
 
 .countriesWrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 30px 10px 0;
     min-width: 100%;
     flex-wrap: wrap;
