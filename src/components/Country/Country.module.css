@@ -55,6 +55,10 @@
     width: 80%;
 }
 
+.BorderCountriesBlock h4 {
+    margin: 20px 0 15px;
+}
+
 .BorderCountriesButtonsContainer {
     display: flex;
     justify-content: center;
