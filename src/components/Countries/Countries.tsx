@@ -1,6 +1,5 @@
 import React from 'react';
 import CountryCard from "../CountryCard/CountryCard";
-import styles from "./Countries.module.css";
 import {CountryType} from "../../App";
 
 type CountriesPropsType = {

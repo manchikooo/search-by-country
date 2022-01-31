@@ -5,22 +5,20 @@
     padding: 15px;
     width: 200px;
     border-radius: 5px;
-    background-color: #2b3945;
-    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.3);
+    background-color: var(--colors-bg);
+    box-shadow: var(--shadow);
+    box-sizing: content-box;
+    color: var(--colors-text);
 }
 
+
 .searchBox:hover {
-    box-shadow: 0 2px 6px 1px rgba(255, 255, 255, 0.3);
-    transition: 0.5s;
-}
-.searchBox:not(hover) {
-    transition: 1s;
+    box-shadow: var(--shadow-for-hover);
 }
 
 .searchInput {
     outline: none;
     border: none;
-    background-color: #2b3945;
+    background-color: var(--colors-bg);
     font-size: 16px;
-    color: white;
 }

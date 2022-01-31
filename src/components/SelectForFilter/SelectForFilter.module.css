@@ -1,20 +1,17 @@
 .selectStyle {
     outline: none;
     border: none;
-    background-color: #2b3945;
+    background-color: var(--colors-bg);
     font-size: 16px;
     padding: 16px;
     border-radius: 5px;
-    color: white;
+    color: var(--colors-text);
     box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.3);
+    /*box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.3);*/
 }
 .selectStyle:hover {
-    box-shadow: 0 2px 6px 1px rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-for-hover);
     cursor: pointer;
-    transition: 0.5s;
-}
-.selectStyle:not(hover) {
-    transition: 1s;
 }
 
 .filterByRegionStyle {

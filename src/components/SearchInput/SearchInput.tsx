@@ -10,7 +10,7 @@ type SearchInputPropsType = {
 export const SearchInput = (props: SearchInputPropsType) => {
     return (
             <div className={styles.searchBox}>
-                <AiOutlineSearch color='white'/>
+                <AiOutlineSearch/>
                 <input className={styles.searchInput}
                        type='search'
                        name=''

@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 1440px;
     align-items: center;
-    color: white;
+    color: var(--colors-text);
 }
 
 .mappedCountries {
@@ -19,7 +19,6 @@
     flex-direction: column;
     width: 100%;
     margin: 0 15px;
-    /*padding: 30px;*/
 }
 
 .backButtonContainer {
@@ -33,21 +32,18 @@
 .backNavigationButton {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 55px;
-    background-color: #2b3945;
+    background-color: var(--colors-bg);
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow);
+    box-sizing: content-box;
 }
 
 .backNavigationButton:hover {
     cursor: pointer;
-    box-shadow: 0 2px 6px 1px rgba(255, 255, 255, 0.3);
-    transition: 0.5s;
-}
-
-.backNavigationButton:not(hover) {
-    transition: 1s;
+    box-shadow: var(--shadow-for-hover);
 }
 
 

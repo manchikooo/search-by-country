@@ -1,19 +1,35 @@
-.headerBlock {
+.headerWrapper {
     display: flex;
     height: 80px;
     width: 100%;
-    background-color: hsl(209, 23%, 22%);
-    justify-content: flex-start;
+    background-color: var(--colors-bg);
+    justify-content: center;
     font-weight: bold;
     font-size: 22px;
     align-items: center;
-    box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow);
+    padding: 0 15px;
+}
+
+.headerBlock {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.themeSwitcher {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 1s;
+}
+.themeSwitcher span {
+    margin-left: 5px;
 }
 
 .headerBlock a {
-    margin-left: 50px;;
     text-decoration: none;
-    color: white;
+    color: var(--colors-text);
 }
 
 .headerBlock a:hover {

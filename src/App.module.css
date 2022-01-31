@@ -4,12 +4,13 @@ ul, li, h3 {
     padding: 0;
     list-style-type: none;
 }
+
 a {
     text-decoration: none;
 }
 
 body {
-    background-color: hsl(207, 26%, 17%);
+    background-color: var(--colors-bg);
 }
 
 .AppContainer {
