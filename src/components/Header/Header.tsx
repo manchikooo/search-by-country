@@ -4,7 +4,7 @@ import styles from './Header.module.css'
 const Header = () => {
     return (
         <div className={styles.headerBlock}>
-            <a href='/'>Where in the world?</a>
+            <a href='/search-by-country/'>Where in the world?</a>
         </div>
     );
 };

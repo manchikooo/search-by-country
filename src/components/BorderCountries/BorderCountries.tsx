@@ -14,7 +14,7 @@ export const BorderCountries = (props: BorderCountriesType) => {
     return (
         <>
             {props.borderCountries.map((b, i) =>
-                <NavLink key={i} to={`/country/${b.name}`}><Button title={b.name}/></NavLink>)}
+                <NavLink key={i} to={`/search-by-country/${b.name}`}><Button title={b.name}/></NavLink>)}
         </>
     );
 };

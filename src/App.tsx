@@ -63,7 +63,7 @@ function App() {
             <Header/>
             <div className={styles.AppContainer}>
                 <Routes>
-                    <Route path={'/*'}
+                    <Route path={'/search-by-country/'}
                            element={
                                <Homepage inputValue={inputValue}
                                          setInputValue={setInputValue}
@@ -72,7 +72,7 @@ function App() {
                                />
                            }
                     />
-                    <Route path={'/country/:countryName'}
+                    <Route path={'/search-by-country/:countryName'}
                            element={
                                <Country/>
                            }
