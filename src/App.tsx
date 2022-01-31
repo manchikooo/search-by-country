@@ -60,8 +60,8 @@ function App() {
 
     return (
         <BrowserRouter>
+            <Header/>
             <div className={styles.AppContainer}>
-                <Header/>
                 <Routes>
                     <Route path={'/*'}
                            element={

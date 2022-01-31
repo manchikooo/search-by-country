@@ -7,8 +7,16 @@
     border-radius: 5px;
     background-color: #2b3945;
     box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.3);
-    margin-left: 15px;
 }
+
+.searchBox:hover {
+    box-shadow: 0 2px 6px 1px rgba(255, 255, 255, 0.3);
+    transition: 0.5s;
+}
+.searchBox:not(hover) {
+    transition: 1s;
+}
+
 .searchInput {
     outline: none;
     border: none;

@@ -9,8 +9,8 @@ type CountriesPropsType = {
 
 export const Countries = (props: CountriesPropsType) => {
     return (
-        <div className={styles.CountriesWrapper}>
+        <>
             <CountryCard countries={props.countries}/>
-        </div>
+        </>
     );
 };

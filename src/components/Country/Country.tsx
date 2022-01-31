@@ -48,42 +48,60 @@ export const Country = () => {
                 const languages = c.languages.map(lang => lang.name)
 
                 return <div className={styles.countryWrapper} key={c.name}>
-                    <div className={styles.backNavigationButton} onClick={backNavigation}>
-                        <BiArrowBack/>
-                        <div>Back</div>
-                    </div>
-                    <div className={styles.countryContainer}>
-                        <div className={styles.flagContainer}>
-                            <img alt={`${countryName} flag`} src={`${c.flag}`}/>
-                            <h3>{c.name}</h3>
+                    <div className={styles.backButtonContainer}>
+                        <div className={styles.backNavigationButton} onClick={backNavigation}>
+                            <BiArrowBack/>
+                            <div>Back</div>
                         </div>
-                        <div className={styles.countryInfoContainer}>
-                            <div className={styles.countryInfoBlock}>
-                                <ul className={styles.countryInfoList1}>
-                                    <li><span>Native Name: </span>{c.nativeName}</li>
-                                    <li><span>Population: </span>{c.population}</li>
-                                    <li><span>Region: </span>{c.region}</li>
-                                    <li><span>Sub Region: </span>{c.subregion}</li>
-                                    <li><span>Capital: </span>{c.capital}</li>
-                                </ul>
-                                <ul className={styles.countryInfoList2}>
-                                    <li><span>Top Level Domain: </span>{topLevelDomain}</li>
-                                    <li><span>Currencies: </span>{currencies}</li>
-                                    <li><span>Languages: </span>{languages}</li>
-                                </ul>
-                            </div>
-                            <div className={styles.BorderCountriesBlock}>
-                                <h4>
-                                    Border Countries:
-                                </h4>
-                                <div className={styles.BorderCountriesButtonContainer}>
-                                    <BorderCountries borderCountries={borderCountries}/>
-                                </div>
-
-                            </div>
+                    </div>
+                    <div className={styles.flagContainer}>
+                        <img alt={`${countryName} flag`} src={`${c.flag}`}/>
+                        <h3>{c.name}</h3>
+                    </div>
+                    <div className={styles.countryInfoList}>
+                        <div className={styles.elOfList}>
+                            <div className={styles.keyOfList}>Native Name:</div>
+                            <div>{c.nativeName}</div>
+                        </div>
+                        <div className={styles.elOfList}>
+                            <div className={styles.keyOfList}>Population:</div>
+                            <div>{c.population}</div>
+                        </div>
+                        <div className={styles.elOfList}>
+                            <div className={styles.keyOfList}>Region:</div>
+                            <div>{c.region}</div>
+                        </div>
+                        <div className={styles.elOfList}>
+                            <div className={styles.keyOfList}>Sub Region:</div>
+                            <div>{c.subregion}</div>
+                        </div>
+                        <div className={styles.elOfList}>
+                            <div className={styles.keyOfList}>Capital:</div>
+                            <div>{c.capital}</div>
+                        </div>
+                        <div className={styles.elOfList}>
+                            <div className={styles.keyOfList}>Top Level Domain:</div>
+                            <div>{topLevelDomain}</div>
+                        </div>
+                        <div className={styles.elOfList}>
+                            <div className={styles.keyOfList}>Currencies:</div>
+                            <div>{currencies}</div>
+                        </div>
+                        <div className={styles.elOfList}>
+                            <div className={styles.keyOfList}>Languages:</div>
+                            <div>{languages}</div>
+                        </div>
+                    </div>
+                    <div className={styles.BorderCountriesBlock}>
+                        <h4>
+                            Border Countries:
+                        </h4>
+                        <div className={styles.BorderCountriesButtonsContainer}>
+                            <BorderCountries borderCountries={borderCountries}/>
                         </div>
 
                     </div>
+
                 </div>
             })}
 

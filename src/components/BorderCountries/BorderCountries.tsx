@@ -1,6 +1,5 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import styles from  './BorderCountry.module.css'
 import {Button} from "../Button/Button";
 
 type BorderCountriesType = {

@@ -1,9 +1,11 @@
 
-ul, li, h3{
+ul, li, h3 {
     margin: 0;
-
     padding: 0;
-
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
 }
 
 body {
@@ -12,22 +14,5 @@ body {
 
 .AppContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 1440px;
+    justify-content: center;
 }
-
-.App {
-    display: flex;
-    flex-direction: column;
-    max-width: 1260px;
-}
-
-
-.filterBlock {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-

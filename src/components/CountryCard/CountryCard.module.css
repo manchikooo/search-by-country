@@ -9,7 +9,16 @@
     min-height: 345px;
     background-color: hsl(209, 23%, 22%);
     box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.3);
+    flex-grow: 1;
 }
+.countryBlock:hover {
+    box-shadow: 0 2px 6px 1px rgba(255, 255, 255, 0.3);
+    transition: 0.5s;
+}
+.countryBlock:not(hover) {
+    transition: 1s;
+}
+
 
 .flagContainer {
     display: flex;
@@ -34,3 +43,5 @@
 .countryInfoContainer span {
     font-weight: bold;
 }
+
+
