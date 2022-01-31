@@ -1,0 +1,52 @@
+.countryInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    width: 100%;
+}
+
+.countryInfoList {
+    width: 40%;
+}
+
+.elOfList {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    max-width: 100%;
+}
+
+.keyOfList {
+    font-weight: bold;
+}
+
+.infoOfListsKey {
+    text-align: right;
+}
+
+@media screen and (max-width: 1000px) {
+    .countryInfoList {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .countryInfoList {
+        width: 50%;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    .countryInfoList {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .countryInfoList {
+        width: 90%;
+    }
+}

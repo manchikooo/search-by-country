@@ -56,8 +56,6 @@ function App() {
     })
     const filterCountriesByName = filterByRegion.filter(country => country.name.toLowerCase().includes(inputValue.toLowerCase()))
 
-    console.log('App')
-
     return (
         <BrowserRouter>
             <Header/>

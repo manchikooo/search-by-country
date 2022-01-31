@@ -1,0 +1,39 @@
+.flagContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.flagContainer h3 {
+    margin: 20px 0;
+}
+
+.flagContainer img {
+    width: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+    .flagContainer img {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .flagContainer img {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .flagContainer img {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .flagContainer img {
+        width: 90%;
+    }
+}

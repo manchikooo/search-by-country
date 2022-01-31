@@ -5,6 +5,8 @@ import {BordersType, CountryType} from "../../App";
 import styles from './Country.module.css'
 import {BiArrowBack} from "@react-icons/all-files/bi/BiArrowBack";
 import {BorderCountries} from "../BorderCountries/BorderCountries";
+import {CountryInfoDetails} from "./CountryInfoDetails/CountryInfoDetails";
+import {FlagAndCountryHeader} from "./FlagAndCountryHeader/FlagAndCountryHeader";
 
 export type BordersCountriesType = Array<{ borders: BordersType }>
 
@@ -19,28 +21,27 @@ export const Country = () => {
     }[]>([])
 
     useEffect(() => {
-        axios.get<Array<CountryType>>(`https://restcountries.com/v2/name/${countryName}?fields=name,region,flag,population,nativeName,subregion,capital,topLevelDomain,currencies,languages`).then(res => {
-            console.log(res.data)
-            setCountryInDetails(res.data)
+        axios.get<Array<CountryType>>(`https://restcountries.com/v2/name/${countryName}?fields=name,region,flag,population,nativeName,subregion,capital,topLevelDomain,currencies,languages`)
+            .then(res => {
+                setCountryInDetails(res.data)
 
-            axios.get<Array<{ borders: BordersType }>>(`https://restcountries.com/v2/name/${countryName}?fields=borders`).then(res => {
-                console.log(res.data)
-                // setBorderCountries(res.data[0].borders)
-                if (res.data[0].borders.length > 0) {
-                    let countryString = res.data[0].borders.join(',')
-                    axios.get(`https://restcountries.com/v2/alpha?codes=${countryString}&fields=name`).then(res => setBorderCountries(res.data))
-                }
+                axios.get<BordersCountriesType>(`https://restcountries.com/v2/name/${countryName}?fields=borders`)
+                    .then(res => {
+                        if (res.data[0].borders.length > 0) {
+                            let countryString = res.data[0].borders.join(',')
+
+                            axios.get(`https://restcountries.com/v2/alpha?codes=${countryString}&fields=name`)
+                                .then(res => setBorderCountries(res.data))
+                        }
+                    })
             })
-        })
     }, [countryName])
 
-    console.log(countryName)
-    console.log(borderCountries)
 
     const backNavigation = () => navigationBack(-1)
 
     return (
-        <div className={styles.countryCONTAINER}>
+        <div className={styles.countryContainer}>
             <div className={styles.backButtonContainer}>
                 <div className={styles.backNavigationButton} onClick={backNavigation}>
                     <BiArrowBack/>
@@ -49,51 +50,9 @@ export const Country = () => {
             </div>
             <div className={styles.mappedCountries}>
                 {countryInDetails.map(c => {
-
-                    const topLevelDomain = c.topLevelDomain.map(d => d)
-                    const currencies = c.currencies.map((cur, i) => i !== c.currencies.length - 1 ?
-                        <span key={i}>{cur.name}, </span> : <span key={i}>{cur.name}</span>)
-                    const languages = c.languages.map((lang, i) => i !== c.languages.length -1 ? <span key={lang.name}>{lang.name}, </span> : <span key={lang.name}>{lang.name}</span>)
-
                     return <div className={styles.countryWrapper} key={c.name}>
-                        <div className={styles.flagContainer}>
-                            <img alt={`${countryName} flag`} src={`${c.flag}`}/>
-                            <h3>{c.name}</h3>
-                        </div>
-                        <div className={styles.countryInfoList}>
-                            <div className={styles.elOfList}>
-                                <div className={styles.keyOfList}>Native Name:</div>
-                                <div>{c.nativeName}</div>
-                            </div>
-                            <div className={styles.elOfList}>
-                                <div className={styles.keyOfList}>Population:</div>
-                                <div>{c.population}</div>
-                            </div>
-                            <div className={styles.elOfList}>
-                                <div className={styles.keyOfList}>Region:</div>
-                                <div>{c.region}</div>
-                            </div>
-                            <div className={styles.elOfList}>
-                                <div className={styles.keyOfList}>Sub Region:</div>
-                                <div>{c.subregion}</div>
-                            </div>
-                            <div className={styles.elOfList}>
-                                <div className={styles.keyOfList}>Capital:</div>
-                                <div>{c.capital}</div>
-                            </div>
-                            <div className={styles.elOfList}>
-                                <div className={styles.keyOfList}>Top Level Domain:</div>
-                                <div>{topLevelDomain}</div>
-                            </div>
-                            <div className={styles.elOfList}>
-                                <div className={styles.keyOfList}>Currencies:</div>
-                                <div className={styles.infoOfListsKey}>{currencies}</div>
-                            </div>
-                            <div className={styles.elOfList}>
-                                <div className={styles.keyOfList}>Languages:</div>
-                                <div className={styles.infoOfListsKey}>{languages}</div>
-                            </div>
-                        </div>
+                        <FlagAndCountryHeader c={c} countryName={countryName}/>
+                        <CountryInfoDetails c={c}/>
                     </div>
                 })}
             </div>
