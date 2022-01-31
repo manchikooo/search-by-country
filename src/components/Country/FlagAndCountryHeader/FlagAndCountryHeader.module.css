@@ -11,6 +11,7 @@
 }
 
 .flagContainer img {
+    min-width: 330px;
     width: 50%;
 }
 
